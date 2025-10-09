@@ -1,13 +1,10 @@
-# KeyNest
-this repository will be used to make real estate website which makes buyers and sellers easy and secure to find  a roof
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PropertyVision - Innovative Real Estate</title>
-    <link rel="stylesheet" href="real.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -23,11 +20,12 @@ this repository will be used to make real estate website which makes buyers and 
         </div>
     </nav>
 
-<!-- Hero Section -->
-<section class="hero" id="home">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="hero-content">
-        <h1>Find Your Dream Home</h1>
+            <h1>Find Your Dream Home</h1>
             <p>Experience the future of real estate with AI-powered search, virtual tours, and intelligent recommendations</p>
+            
             <div class="search-container">
                 <div class="search-grid">
                     <input type="text" class="search-input" placeholder="Search by location, property type, or features...">
@@ -58,8 +56,8 @@ this repository will be used to make real estate website which makes buyers and 
         </div>
     </section>
 
- <!-- Properties Section -->
-<section class="properties" id="properties">
+    <!-- Properties Section -->
+    <section class="properties" id="properties">
         <h2 class="section-title">Featured Properties</h2>
         <div class="property-grid">
             <!-- Property 1 -->
@@ -83,8 +81,8 @@ this repository will be used to make real estate website which makes buyers and 
                 </div>
             </div>
 
-<!-- Property 2 -->
-<div class="property-card" onclick="openVirtualTour('Luxury Penthouse Downtown')">
+            <!-- Property 2 -->
+            <div class="property-card" onclick="openVirtualTour('Luxury Penthouse Downtown')">
                 <div class="property-image">
                     <div class="property-badge">Featured</div>
                 </div>
@@ -104,8 +102,8 @@ this repository will be used to make real estate website which makes buyers and 
                 </div>
             </div>
 
-<!-- Property 3 -->
-<div class="property-card" onclick="openVirtualTour('Oceanfront Mansion')">
+            <!-- Property 3 -->
+            <div class="property-card" onclick="openVirtualTour('Oceanfront Mansion')">
                 <div class="property-image">
                     <div class="property-badge">Price Reduced</div>
                 </div>
@@ -127,8 +125,8 @@ this repository will be used to make real estate website which makes buyers and 
         </div>
     </section>
 
-<!-- Features Section -->
-<section class="features parallax" id="features">
+    <!-- Features Section -->
+    <section class="features parallax" id="features">
         <div class="features-container">
             <h2 class="section-title">Revolutionary Features</h2>
             <div class="features-grid">
@@ -166,13 +164,13 @@ this repository will be used to make real estate website which makes buyers and 
         </div>
     </section>
 
-<!-- AI Assistant -->
-<div class="ai-assistant" onclick="toggleAIChat()">
+    <!-- AI Assistant -->
+    <div class="ai-assistant" onclick="toggleAIChat()">
         <span style="font-size: 1.5rem;">🤖</span>
-</div>
+    </div>
 
-<!-- AI Chat Interface -->
-<div class="ai-chat" id="aiChat">
+    <!-- AI Chat Interface -->
+    <div class="ai-chat" id="aiChat">
         <div class="chat-header">
             <div>PropertyVision AI Assistant</div>
         </div>
@@ -186,8 +184,8 @@ this repository will be used to make real estate website which makes buyers and 
         </div>
     </div>
 
-<!-- Virtual Tour Modal -->
-<div class="modal" id="tourModal">
+    <!-- Virtual Tour Modal -->
+    <div class="modal" id="tourModal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeTour()">&times;</button>
             <h2 id="tourTitle">Virtual Tour</h2>
@@ -200,7 +198,7 @@ this repository will be used to make real estate website which makes buyers and 
         </div>
     </div>
 
-<script>
+    <script>
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -226,7 +224,7 @@ this repository will be used to make real estate website which makes buyers and 
             if (searchInput.value.trim()) {
                 showLoading();
                 setTimeout(() => {
-                    alert(Searching for: ${searchInput.value}\n\nFound 127 matching properties!);
+                    alert(`Searching for: ${searchInput.value}\n\nFound 127 matching properties!`);
                     hideLoading();
                 }, 2000);
             }
@@ -312,7 +310,7 @@ this repository will be used to make real estate website which makes buyers and 
         function openVirtualTour(propertyName) {
             const modal = document.getElementById('tourModal');
             const title = document.getElementById('tourTitle');
-            title.textContent = Virtual Tour: ${propertyName};
+            title.textContent = `Virtual Tour: ${propertyName}`;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
