@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KeyNest - Properties</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">KeyNest</div>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="#properties">Properties</a>
+                <a href="home.html#contact">Contact</a>
+                <a href="index.html">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="properties-section">
+        <h2>Available Properties</h2>
+        <div class="property-grid">
+            <div class="property-card">
+                <img src="IMG-20251008-WA0051.jpg" alt="Property 1" class="property-image" />
+                <div class="property-content">
+                    <h3>Luxury Villa in Mumbai</h3>
+                    <p class="price">₹2,45,00,000</p>
+                    <p class="location">📍 Mumbai, Maharashtra</p>
+                    <div class="features">
+                        <span>4 Beds</span> | <span>3 Baths</span> | <span>3,200 sqft</span>
+                    </div>
+                    <div class="reviews">
+                        <span class="rating">⭐⭐⭐⭐⭐ (4.8)</span>
+                        <p>Excellent property with great amenities. Highly recommended!</p>
+                    </div>
+                    <div class="seller-contact">
+                        <p><strong>Seller:</strong> John Doe</p>
+                        <p><strong>Contact:</strong> +91 9876543210</p>
+                        <p><strong>Email:</strong> john.doe@example.com</p>
+                    </div>
+                    <button onclick="initiatePayment('₹2,45,00,000')" class="btn btn-primary">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="IMG-20251008-WA0052.jpg" alt="Property 2" class="property-image" />
+                <div class="property-content">
+                    <h3>Modern Apartment in Delhi</h3>
+                    <p class="price">₹1,85,00,000</p>
+                    <p class="location">📍 Delhi, India</p>
+                    <div class="features">
+                        <span>3 Beds</span> | <span>2 Baths</span> | <span>2,100 sqft</span>
+                    </div>
+                    <div class="reviews">
+                        <span class="rating">⭐⭐⭐⭐ (4.5)</span>
+                        <p>Great location and well-maintained property.</p>
+                    </div>
+                    <div class="seller-contact">
+                        <p><strong>Seller:</strong> Jane Smith</p>
+                        <p><strong>Contact:</strong> +91 9876543211</p>
+                        <p><strong>Email:</strong> jane.smith@example.com</p>
+                    </div>
+                    <button onclick="initiatePayment('₹1,85,00,000')" class="btn btn-primary">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="IMG-20251008-WA0053.jpg" alt="Property 3" class="property-image" />
+                <div class="property-content">
+                    <h3>Beachfront Villa in Goa</h3>
+                    <p class="price">₹3,20,00,000</p>
+                    <p class="location">📍 Goa, India</p>
+                    <div class="features">
+                        <span>6 Beds</span> | <span>5 Baths</span> | <span>5,500 sqft</span>
+                    </div>
+                    <div class="reviews">
+                        <span class="rating">⭐⭐⭐⭐⭐ (5.0)</span>
+                        <p>Stunning property with ocean views. Absolutely perfect!</p>
+                    </div>
+                    <div class="seller-contact">
+                        <p><strong>Seller:</strong> Mike Johnson</p>
+                        <p><strong>Contact:</strong> +91 9876543212</p>
+                        <p><strong>Email:</strong> mike.johnson@example.com</p>
+                    </div>
+                    <button onclick="initiatePayment('₹3,20,00,000')" class="btn btn-primary">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <h2>UPI Payment</h2>
+            <p>Amount: <span id="paymentAmount"></span></p>
+            <p>UPI ID: keynest@upi</p>
+            <p>Scan QR code or enter UPI ID to complete payment:</p>
+            <div class="upi-qr">
+                <!-- Placeholder for QR code -->
+                <div style="width: 200px; height: 200px; background: #f0f0f0; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center;">
+                    QR Code Placeholder
+                </div>
+            </div>
+            <input type="text" id="upiId" placeholder="Enter UPI ID" />
+            <button onclick="completePayment()" class="btn btn-primary">Complete Payment</button>
+            <button onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        function initiatePayment(amount) {
+            document.getElementById('paymentAmount').textContent = amount;
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function completePayment() {
+            const upiId = document.getElementById('upiId').value;
+            if (upiId) {
+                // Simulate payment processing
+                alert('Payment initiated successfully! Transaction ID: TXN' + Math.random().toString(36).substr(2, 9).toUpperCase());
+                closeModal();
+            } else {
+                alert('Please enter a valid UPI ID');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

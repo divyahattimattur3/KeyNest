@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KeyNest - Home</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">KeyNest</div>
+            <div class="nav-links">
+                <a href="#about">About Us</a>
+                <a href="#properties">Properties</a>
+                <a href="#contact">Contact</a>
+                <a href="index.html">Logout</a>
+            </div>
+            <div class="contact-info">
+                <span>📞 +91 9900374876</span> | 
+                <span>📧 support@keynest.com</span> | 
+                <span>📍 Mumbai, Maharashtra</span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>KeyNest is a leading real estate platform dedicated to connecting buyers and sellers with ease and trust. Our mission is to simplify property transactions with innovative technology and personalized service.</p>
+        <div class="about-photos">
+            <img src="IMG-20251008-WA0051.jpg" alt="Team Photo 1" />
+            <img src="IMG-20251008-WA0052.jpg" alt="Team Photo 2" />
+            <img src="IMG-20251008-WA0053.jpg" alt="Office Photo" />
+        </div>
+        <div class="social-media">
+            <a href="https://facebook.com/keynest" target="_blank">Facebook</a> |
+            <a href="https://twitter.com/keynest" target="_blank">Twitter</a> |
+            <a href="https://instagram.com/keynest" target="_blank">Instagram</a> |
+            <a href="https://linkedin.com/company/keynest" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <section id="properties" class="properties-section">
+        <h2>Featured Properties</h2>
+        <p>Explore our curated list of properties available for sale and rent.</p>
+        <div class="property-listings">
+            <!-- Property listings will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Reach out to our support team for any inquiries or assistance.</p>
+        <form id="contactForm">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for contacting KeyNest. We will get back to you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

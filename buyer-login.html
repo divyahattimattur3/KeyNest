@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyNest - Buyer Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Buyer Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div class="forgot-password">
+            <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+        </div>
+        <div class="back-link">
+            <a href="index.html">Back to Selection</a>
+        </div>
+    </div>
+
+    <!-- OTP Modal -->
+    <div class="modal" id="otpModal">
+        <div class="modal-content">
+            <h2>Two-Factor Authentication</h2>
+            <p>Enter the OTP sent to your mobile number:</p>
+            <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6">
+            <button onclick="verifyOTP()" class="btn btn-primary">Verify</button>
+            <button onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotModal">
+        <div class="modal-content">
+            <h2>Forgot Password</h2>
+            <p>Enter your mobile number to receive OTP:</p>
+            <input type="tel" id="mobileInput" placeholder="Mobile Number" required>
+            <button onclick="sendResetOTP()" class="btn btn-primary">Send OTP</button>
+            <button onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal" id="resetModal">
+        <div class="modal-content">
+            <h2>Reset Password</h2>
+            <p>Enter the OTP and new password:</p>
+            <input type="text" id="resetOtpInput" placeholder="Enter OTP" maxlength="6">
+            <input type="password" id="newPassword" placeholder="New Password">
+            <button onclick="resetPassword()" class="btn btn-primary">Reset</button>
+            <button onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Simulate login and show OTP modal
+            document.getElementById('otpModal').style.display = 'flex';
+        });
+
+        function verifyOTP() {
+            const otp = document.getElementById('otpInput').value;
+            if (otp.length === 6) {
+                // Simulate OTP verification
+                alert('Login successful! Redirecting to home...');
+                window.location.href = 'home.html';
+            } else {
+                alert('Invalid OTP');
+            }
+        }
+
+        function showForgotPassword() {
+            document.getElementById('forgotModal').style.display = 'flex';
+        }
+
+        function sendResetOTP() {
+            const mobile = document.getElementById('mobileInput').value;
+            if (mobile) {
+                // Simulate sending OTP
+                alert('OTP sent to ' + mobile);
+                document.getElementById('forgotModal').style.display = 'none';
+                document.getElementById('resetModal').style.display = 'flex';
+            }
+        }
+
+        function resetPassword() {
+            const otp = document.getElementById('resetOtpInput').value;
+            const newPass = document.getElementById('newPassword').value;
+            if (otp && newPass) {
+                // Simulate password reset
+                alert('Password reset successful!');
+                closeModal();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('otpModal').style.display = 'none';
+            document.getElementById('forgotModal').style.display = 'none';
+            document.getElementById('resetModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
